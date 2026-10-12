@@ -9,27 +9,27 @@
 @layer base {
   :root {
     /* Brand */
-    --root-primary: #1e293b;
-    --root-primary-hover: #0f172a;
-    --root-primary-light: #334155;
+    --root-primary: #2563eb;
+    --root-primary-hover: #1d4ed8;
+    --root-primary-light: #60a5fa;
     --root-on-primary: #ffffff;
 
     /* Accent */
-    --root-accent: #3b7a57;
-    --root-accent-dark: #2d5e43;
-    --root-accent-light: #e8f3ec;
+    --root-accent: #2563eb;
+    --root-accent-dark: #1d4ed8;
+    --root-accent-light: #dbeafe;
 
     /* Backgrounds */
-    --root-bg: #f4f3ef;
-    --root-surface: #fcfbf9;
-    --root-bg-muted: #e8e6e1;
-    --root-bg-dark: #121824;
-    --root-overlay: rgb(18 24 36 / 75%);
+    --root-bg: #f5f8ff;
+    --root-surface: #ffffff;
+    --root-bg-muted: #eaf0fb;
+    --root-bg-dark: #07111f;
+    --root-overlay: rgb(7 17 31 / 78%);
 
     /* Text */
-    --root-text: #1a202c;
-    --root-text-muted: #64748b;
-    --root-text-light: #f4f3ef;
+    --root-text: #101d33;
+    --root-text-muted: #52627a;
+    --root-text-light: #f5f8ff;
 
     /* Status */
     --root-success: #2d6a4f;
@@ -49,13 +49,13 @@
       monospace;
 
     /* Shadows */
-    --root-shadow-sm: 0 1px 3px rgb(26 32 44 / 6%);
-    --root-shadow-md: 0 4px 12px rgb(26 32 44 / 8%);
-    --root-shadow-lg: 0 12px 28px rgb(26 32 44 / 11%);
-    --root-shadow-glow: 0 4px 20px rgb(59 122 87 / 15%);
+    --root-shadow-sm: 0 1px 3px rgb(16 29 51 / 6%);
+    --root-shadow-md: 0 4px 12px rgb(16 29 51 / 8%);
+    --root-shadow-lg: 0 12px 28px rgb(16 29 51 / 11%);
+    --root-shadow-glow: 0 4px 24px rgb(37 99 235 / 20%);
 
     /* Borders */
-    --root-border: #dbd8d0;
+    --root-border: #d8e2f2;
 
     /* Radius */
     --root-radius-sm: 0.375rem;
@@ -77,26 +77,26 @@
 
   .dark {
     /* Brand */
-    --root-primary: #94a3b8;
-    --root-primary-hover: #cbd5e1;
-    --root-primary-light: #e2e8f0;
-    --root-on-primary: #0f172a;
+    --root-primary: #60a5fa;
+    --root-primary-hover: #93c5fd;
+    --root-primary-light: #bfdbfe;
+    --root-on-primary: #07111f;
 
     /* Accent */
-    --root-accent: #52b788;
-    --root-accent-dark: #74c69d;
-    --root-accent-light: #1b4332;
+    --root-accent: #38bdf8;
+    --root-accent-dark: #7dd3fc;
+    --root-accent-light: #0c3551;
 
     /* Backgrounds */
-    --root-bg: #0f141c;
-    --root-surface: #171f2b;
-    --root-bg-muted: #212c3d;
-    --root-bg-dark: #090d13;
+    --root-bg: #07111f;
+    --root-surface: #0d1b2e;
+    --root-bg-muted: #13243b;
+    --root-bg-dark: #040a13;
     --root-overlay: rgb(0 0 0 / 80%);
 
     /* Text */
-    --root-text: #f1f5f9;
-    --root-text-muted: #94a3b8;
+    --root-text: #edf5ff;
+    --root-text-muted: #a4b5cc;
     --root-text-light: #ffffff;
 
     /* Status */
@@ -109,10 +109,10 @@
     --root-shadow-sm: 0 1px 3px rgb(0 0 0 / 30%);
     --root-shadow-md: 0 4px 12px rgb(0 0 0 / 35%);
     --root-shadow-lg: 0 12px 28px rgb(0 0 0 / 45%);
-    --root-shadow-glow: 0 4px 20px rgb(82 183 136 / 12%);
+    --root-shadow-glow: 0 4px 24px rgb(56 189 248 / 18%);
 
     /* Borders */
-    --root-border: #2e3a4e;
+    --root-border: #203652;
   }
 }
 /* ============================================================
@@ -207,6 +207,19 @@
       transform: scale(1);
     }
   }
+  @keyframes hero-shimmer {
+    from {
+      background-position: 200% center;
+    }
+    to {
+      background-position: 0% center;
+    }
+  }
+  @keyframes tech-marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
 }
 
 /* ============================================================
@@ -222,6 +235,9 @@
 
   body {
     @apply bg-bg text-text-muted antialiased;
+    transition:
+      background-color 300ms ease,
+      color 300ms ease;
   }
 
   h1,
@@ -261,4 +277,30 @@
 
 .dark .webforge-logo {
   filter: grayscale(1) brightness(1.8) contrast(1.2);
+}
+
+.hero-glass-text {
+  color: transparent;
+  background: linear-gradient(
+    115deg,
+    var(--root-text) 5%,
+    var(--root-primary) 35%,
+    var(--root-text) 52%,
+    var(--root-accent) 72%,
+    var(--root-text) 95%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 0.5px
+    color-mix(in srgb, var(--root-text) 18%, transparent);
+  animation: hero-shimmer 10s linear infinite;
+}
+
+.hero-tech-marquee {
+  animation: tech-marquee 26s linear infinite;
+}
+
+.hero-tech-marquee:hover {
+  animation-play-state: paused;
 }
