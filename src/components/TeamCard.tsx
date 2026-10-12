@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import type { TeamMember } from "../types";
 import SocialLinks from "./SocialLinks";
 
@@ -11,9 +12,16 @@ function getInitials(name: string) {
     .toUpperCase();
 }
 
-export default function TeamCard({ name, role, bio, avatar, links }: TeamMember) {
+type TeamCardProps = TeamMember & {
+  style?: CSSProperties;
+};
+
+export default function TeamCard({ name, role, bio, avatar, links, style }: TeamCardProps) {
   return (
-    <article className="flex flex-col items-center rounded-xl border border-border bg-surface p-6 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-glow">
+    <article
+      style={style}
+      className="animate-fade-up flex flex-col items-center rounded-xl border border-border bg-surface p-6 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-glow"
+    >
       {avatar ? (
         <img
           src={avatar}

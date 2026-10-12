@@ -8,14 +8,17 @@ export default function Team() {
       <div className="container-page">
         <SectionHeading
           id="team-title"
-          eyebrow="// team"
-          title="The crew at the forge"
+          title="Team"
           description="Three people, one goal: websites you're proud to launch."
         />
 
         <div className="mt-14 grid gap-6 md:grid-cols-3">
-          {team.map((member) => (
-            <TeamCard key={member.id} {...member} />
+          {team.map((member, index) => (
+            <TeamCard
+              key={member.id}
+              {...member}
+              style={{ animationDelay: `${index * 120}ms` }}
+            />
           ))}
         </div>
       </div>

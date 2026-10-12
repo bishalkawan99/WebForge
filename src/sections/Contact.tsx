@@ -123,8 +123,7 @@ export default function Contact() {
       <div className="container-page">
         <SectionHeading
           id="contact-title"
-          eyebrow="// contact"
-          title="Let's build something"
+          title="Contact"
           description="Have a project in mind? Send us a message and we'll get back to you."
         />
 

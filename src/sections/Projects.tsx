@@ -21,8 +21,7 @@ export default function Projects() {
       <div className="container-page relative z-10">
         <SectionHeading
           id="projects-title"
-          eyebrow="// featured work"
-          title="Built to make an impact."
+          title="Projects"
           description="A closer look at digital experiences we've designed and built for real businesses."
         />
 
