@@ -310,17 +310,16 @@
   color: transparent;
   background: linear-gradient(
     115deg,
-    var(--root-text) 5%,
-    var(--root-primary) 35%,
-    var(--root-text) 52%,
-    var(--root-accent) 72%,
-    var(--root-text) 95%
+    rgb(255 255 255 / 94%) 5%,
+    rgb(244 244 245 / 92%) 28%,
+    rgb(255 255 255 / 98%) 52%,
+    rgb(212 212 216 / 92%) 72%,
+    rgb(255 255 255 / 96%) 95%
   );
   background-size: 200% auto;
   background-clip: text;
   -webkit-background-clip: text;
-  -webkit-text-stroke: 0.5px
-    color-mix(in srgb, var(--root-text) 18%, transparent);
+  -webkit-text-stroke: 0.5px rgb(255 255 255 / 18%);
   animation: hero-shimmer 10s linear infinite;
 }
 
